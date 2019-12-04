@@ -1,79 +1,79 @@
-import React from "react"
-import Layout from '../common/layouts';
-import { graphql } from 'gatsby';
-import Hero from '../homepage/components/hero';
-import Card from '../homepage/components/card';
-import About from '../homepage/components/about';
-import Bio from '../homepage/components/bio';
-import Seo from '../common/seo';
+import React from "react";
+import Layout from "../common/layouts";
+import { graphql } from "gatsby";
+import Hero from "../homepage/components/hero";
+import Card from "../homepage/components/card";
+import About from "../homepage/components/about";
+import Bio from "../homepage/components/bio";
+import Seo from "../common/seo";
 
 export default ({ data }) => {
-  let post = data.featuredPost.edges[0].node;
+  const featuredContentfulPost = data.contentfulPost.edges[0].node;
+  console.log(data);
   return (
     <Layout>
       <Seo
         title={"Home Page"}
-        description={data.site.siteMetadata.description} />
+        description={data.site.siteMetadata.description}
+      />
       <Hero
-        title={post.frontmatter.title}
-        image={post.frontmatter.postImage.childImageSharp.fluid}
-        to={post.frontmatter.slug}
-        description={post.frontmatter.description} />
+        title={featuredContentfulPost.title}
+        image={featuredContentfulPost.coverImage.fluid}
+        // to={post.frontmatter.slug}
+        description={featuredContentfulPost.description}
+      />
       <div className="flex flex-wrap center mw9 justify-around pb3">
-        {data.cards.edges.map(({node}) => (
+        {data.cards.edges.map(({ node }) => (
           <Card
-            title={node.frontmatter.title}
-            image={node.frontmatter.postImage.childImageSharp.fluid}
-            to={node.frontmatter.slug}
-            description={node.frontmatter.description} />
+            title={node.title}
+            image={node.coverImage.fluid}
+            // to={node.frontmatter.slug}
+            description={node.description}
+          />
         ))}
       </div>
       <About />
       <Bio />
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query {
-    featuredPost: allMarkdownRemark(
-      limit: 1,
-      sort: {order: DESC, fields: frontmatter___date},
-      filter: {frontmatter: {type: {eq: "post"}}}) {
+    contentfulPost: allContentfulBlogpost(
+      limit: 1
+      sort: { order: DESC, fields: date }
+    ) {
       edges {
         node {
-          frontmatter {
-            title
-            description: metaDescription
-            slug
-            postImage {
-              childImageSharp {
-                fluid(maxWidth: 1920) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+          id
+          title
+          date(formatString: "DD-MM-YYYY")
+          category
+          description
+          coverImage {
+            fluid(maxWidth: 1920) {
+              src
             }
           }
         }
       }
     }
-    cards: allMarkdownRemark(
-      skip: 1,
-      limit: 3,
-      sort: {order: DESC, fields: frontmatter___date},
-      filter: {frontmatter: {type: {eq: "post"}}}) {
+    cards: allContentfulBlogpost(
+      skip: 1
+      limit: 3
+      sort: { order: DESC, fields: date }
+    ) {
       edges {
         node {
-          frontmatter {
-            title
-            description: metaDescription
-            slug
-            postImage {
-              childImageSharp {
-                fluid(maxWidth: 1920) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+          id
+          title
+          date(formatString: "DD-MM-YYYY")
+          category
+          description
+          coverImage {
+            fluid(maxWidth: 1920) {
+              src
             }
           }
         }
@@ -85,4 +85,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

@@ -3,7 +3,6 @@ module.exports = {
   siteMetadata: {
     navbarLinks: [
       { to: "/travel", name: "Travel" },
-      { to: "/culinary", name: "Culinary" },
       { to: "/blog", name: "Blog" }
     ],
     title: "6slov",
