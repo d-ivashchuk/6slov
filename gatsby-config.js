@@ -7,6 +7,7 @@ module.exports = {
     ],
     title: "6slov",
     author: "Alexandra Chervynska",
+    email: "a.chervynska@gmail.com",
     description: "",
     siteUrl: "https://tyra-starter.netlify.com",
     homepageHeader: "Welcome to Your New Blog",
@@ -14,6 +15,7 @@ module.exports = {
       "Tyra is a modern, sleek and feminine Gatsby.js theme. Easily create a beautiful and fast blog and draw attention to your stellar content.",
     mailChimpUrl: "https://mailchimp.com",
     mailChimpToken: "MAILCHIMP TOKEN HERE",
+    instagram: "https://www.instagram.com/chervynska/",
     youtube: "", // YOUR YOUTUBE PROFILE HERE
     github: "", // YOUR GITHUB PROFILE HERE
     pinterest: "", // YOUR PINTEREST PROFILE HERE
