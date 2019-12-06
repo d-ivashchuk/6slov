@@ -9,7 +9,6 @@ import Seo from "../common/seo";
 
 export default ({ data }) => {
   const featuredContentfulPost = data.contentfulPost.edges[0].node;
-  console.log(data);
   return (
     <Layout>
       <Seo
@@ -19,7 +18,7 @@ export default ({ data }) => {
       <Hero
         title={featuredContentfulPost.title}
         image={featuredContentfulPost.coverImage.fluid}
-        // to={post.frontmatter.slug}
+        to={featuredContentfulPost.slug}
         description={featuredContentfulPost.description}
       />
       <div className="flex flex-wrap center mw9 justify-around pb3">
@@ -27,7 +26,7 @@ export default ({ data }) => {
           <Card
             title={node.title}
             image={node.coverImage.fluid}
-            // to={node.frontmatter.slug}
+            to={featuredContentfulPost.slug}
             description={node.description}
           />
         ))}
