@@ -18,22 +18,28 @@
   width: 0;
 }
 
-.vh-7 {height: 7vh;}
-.vh-93 {height: 93vh;}
+.vh-7 {
+  height: 7vh;
+}
+.vh-93 {
+  height: 93vh;
+}
 
 .ease {
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 
 .fadeIn {
-  animation: fadeIn .4s normal forwards;
+  animation: fadeIn 0.4s normal forwards;
 }
 
 .fadeOut {
-  animation: fadeOut .2s normal forwards;
+  animation: fadeOut 0.2s normal forwards;
 }
 
-.menu__item { visibility: none; }
+.menu__item {
+  visibility: none;
+}
 
 @media screen and (min-width: 60em) {
   .tl-75-l {
@@ -49,7 +55,7 @@
 
   1% {
     visibility: visible;
-    opacity: 0
+    opacity: 0;
   }
 
   100% {
@@ -82,7 +88,6 @@
   line-height: 1.6em;
 }
 
-
 /* Styles for quotes */
 .article__container blockquote {
   font-style: italic;
@@ -107,13 +112,13 @@
 .article__container h4,
 .article__container h5,
 .article__container h6 {
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   font-weight: 600;
 }
 
 /* Styles for code */
 .article__container pre {
-  padding: .5rem;
+  padding: 0.5rem;
   font-size: 1rem;
   background-color: #eee;
   white-space: pre-wrap;
