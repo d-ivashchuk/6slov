@@ -74,18 +74,17 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
-        // Create all the blog post pages.
-        // const template = path.resolve('src/blog/post.js');
-        // allPosts.forEach(({ node }) => {
-        //   let slug = node.frontmatter.slug;
-        //   createPage({
-        //     path: slug,
-        //     component: template,
-        //     context: {
-        //       slug,
-        //     }
-        //   })
-        // })
+        const template = path.resolve("src/blog/post.js");
+        allPosts.forEach(({ node }) => {
+          let slug = node.slug;
+          createPage({
+            path: slug,
+            component: template,
+            context: {
+              slug
+            }
+          });
+        });
       })
     );
   });
