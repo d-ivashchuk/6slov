@@ -10,11 +10,12 @@ export default ({ location, data }) => {
   console.log(data);
   const { category, date, title, slug, description } = data.post;
   const content = data.post.postBody.childMarkdownRemark.html;
+  const { author } = data.site.siteMetadata;
   return (
     <Layout>
       <Seo slug={slug} title={title} date={date} description={description} />
       <MetaSeo title={title} description={description} />
-      <Hero date={date} category={category} title={title} />
+      <Hero date={date} author={author} category={category} title={title} />
       <Body content={content} description={description} location={location} />
     </Layout>
   );
@@ -33,6 +34,11 @@ export const query = graphql`
         childMarkdownRemark {
           html
         }
+      }
+    }
+    site {
+      siteMetadata {
+        author
       }
     }
   }

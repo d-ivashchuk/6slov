@@ -2,10 +2,11 @@ const dotenv = require("dotenv").config();
 module.exports = {
   siteMetadata: {
     navbarLinks: [
-      { to: "/travel", name: "Travel" },
-      { to: "/blog", name: "Blog" }
+      { to: "/blog", name: "Blog" },
+      { to: "/travel", name: "Travel" }
     ],
     title: "6slov",
+    author: "Alexandra Chervynska",
     description: "",
     siteUrl: "https://tyra-starter.netlify.com",
     homepageHeader: "Welcome to Your New Blog",
