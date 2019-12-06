@@ -50,6 +50,7 @@ export const query = graphql`
           date(formatString: "DD-MM-YYYY")
           category
           description
+          slug
           coverImage {
             fluid(maxWidth: 1920) {
               src
@@ -70,6 +71,7 @@ export const query = graphql`
           date(formatString: "DD-MM-YYYY")
           category
           description
+          slug
           coverImage {
             fluid(maxWidth: 1920) {
               src
