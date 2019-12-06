@@ -9,7 +9,7 @@ import { graphql } from "gatsby";
 export default ({ location, data }) => {
   console.log(data);
   const { category, date, title, slug, description } = data.post;
-  const content = data.post.postBody.childMarkdownRemark.html;
+  const content = data.post.postBody.json;
   const { author } = data.site.siteMetadata;
   return (
     <Layout>
@@ -31,9 +31,7 @@ export const query = graphql`
       description
       slug
       postBody {
-        childMarkdownRemark {
-          html
-        }
+        json
       }
     }
     site {
